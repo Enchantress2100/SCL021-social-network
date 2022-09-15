@@ -56,7 +56,6 @@ function newUser() {
         const user = userCredential.user;
         const userId = user.uid;
         newUserData(userId, nickInput, bioInput, birthInput, chosenPic, arrayGender);
-        uploadBytes(chosenPic);
         updateProfile(auth.currentUser, { displayName: nickInput }).then(() => {
           console.log('perfil creado');
         }).catch((error) => {
