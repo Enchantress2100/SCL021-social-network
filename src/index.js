@@ -50,16 +50,17 @@ function router() {
     document.getElementById('container').innerHTML = view.render();
   } else {
     history.replaceState('', '', '/');
+    router();
   }
 }
 
 // manejar navegacion en "a" para dirigirnos a las distintas rutas.
-window.addEventListener('click', (e) => {
+window.addEventListener('click', e => {
   if (e.target.matches('[data-link]')) {
     e.preventDefault();
     history.pushState('', '', e.target.href);
     router();
-  }
+  } 
 
   // ejecutar funciones importadas según la vista
   switch (window.location.pathname) {
